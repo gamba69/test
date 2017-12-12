@@ -1,0 +1,25 @@
+{% for data in users_list %}
+    {% set user = data[0] %}
+    {% set accounts = data[1] %}
+    {% set added = data[2] %}
+    <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.address }}</td>
+        <td>
+            <a href="{{ path('test_task_accounts', {'userId': user.id}) }}">
+                {{ accounts }}
+            </a>
+        </td>
+        <td>
+            {% if added is not empty %}
+                {{ added|date('d.m.y') }}
+            {% else %}
+                &nbsp;
+            {% endif %}
+        </td>
+        <td>
+            <a class="del_user" href="#" data-href="{{ path('test_task_del_user', {'userId': user.id}) }}">Удалить</a>
+        </td>
+    </tr>
+{% endfor %}

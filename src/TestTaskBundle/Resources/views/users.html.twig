@@ -1,0 +1,45 @@
+{% extends 'TestTaskBundle::layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var url_get_users = '{{ path("test_task_get_users") }}';
+        var url_add_user = '{{ path("test_task_add_user") }}';
+    </script>
+    {% javascripts
+        "@TestTaskBundle/Resources/public/js/user.edit.js" %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Пользователи
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Accounts</th>
+                    <th>Date added</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="users_list_data">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Добавить пользователя
+        </div>
+        <div class="panel-body">
+            {{ form(user_form) }}
+        </div>
+
+    </div>
+{% endblock %}
