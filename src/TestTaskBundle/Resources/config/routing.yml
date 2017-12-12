@@ -1,3 +1,31 @@
 test_task_index:
     path: /
     defaults: { _controller: TestTaskBundle:TestTask:index }
+
+test_task_add_user:
+    path: /users/add
+    defaults: { _controller: TestTaskBundle:TestTask:addUser }
+
+test_task_del_user:
+    path: /users/del/{userId}
+    defaults: { _controller: TestTaskBundle:TestTask:delUser }
+
+test_task_get_users:
+    path: /users/get
+    defaults: { _controller: TestTaskBundle:TestTask:getUsers }
+
+test_task_accounts:
+    path: /accounts/{userId}
+    defaults: { _controller: TestTaskBundle:TestTask:accounts }
+
+test_task_add_account:
+    path: /accounts/{userId}/add
+    defaults: { _controller: TestTaskBundle:TestTask:addAccount }
+
+test_task_del_account:
+    path: /accounts/del/{accountId}
+    defaults: { _controller: TestTaskBundle:TestTask:delAccount }
+
+test_task_get_accounts:
+    path: /accounts/{userId}/get
+    defaults: { _controller: TestTaskBundle:TestTask:getAccounts }

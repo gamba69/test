@@ -1,0 +1,51 @@
+{% extends 'TestTaskBundle::layout.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var url_get_accounts = '{{ path("test_task_get_accounts", {'userId': user.id}) }}';
+        var url_add_account = '{{ path("test_task_add_account", {'userId': user.id}) }}';
+    </script>
+    {% javascripts
+        "@TestTaskBundle/Resources/public/js/account.edit.js" %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Пользователь
+        </div>
+        <div class="panel-body">
+            <p>Имя: {{ user.name }}<br>
+                Email: {{ user.email }}<br>
+                Адрес: {{ user.address }}</p>
+            <p><a href="{{ path('test_task_index') }}">Вернуться к списку</a></p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Счета
+        </div>
+        <div class="panel-body">
+            <table class="table table-condensed">
+                <thead>
+                <tr>
+                    <th>Account</th>
+                    <th>Date added</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="accounts_list_data">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Добавить счет
+        </div>
+        <div class="panel-body">
+            {{ form(account_form) }}
+        </div>
+    </div>
+{% endblock %}
