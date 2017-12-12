@@ -1,3 +1,2 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+test_task:
+    resource: '@TestTaskBundle/Resources/config/routing.yml'

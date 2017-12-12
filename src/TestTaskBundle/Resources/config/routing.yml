@@ -1,0 +1,3 @@
+test_task_index:
+    path: /
+    defaults: { _controller: TestTaskBundle:TestTask:index }
